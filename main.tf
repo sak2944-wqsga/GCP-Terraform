@@ -8,13 +8,13 @@ terraform {
 }
 
 provider "google" {
-  project = "playground-s-11-48aeb827"
+  project = "decent-digit-479008-d5"
   region  = "us-central1"
   zone    = "us-central1-a"
 }
 
 resource "google_compute_instance" "my_vm" {
-  name         = "my-test-vmmm"
+  name         = "shubhs-test-vm"
   machine_type = "e2-micro"
 
   boot_disk {
