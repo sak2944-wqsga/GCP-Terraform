@@ -1,0 +1,51 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 4.0"
+    }
+  }
+}
+
+provider "google" {
+  project = "decent-digit-479008-d5"
+  region  = "us-central1"
+}
+
+# Create bucket for website hosting
+resource "google_storage_bucket" "website" {
+  name                        = "shubhs-gcp-staticwebsite"
+  location                    = "US"
+  force_destroy               = true
+  uniform_bucket_level_access = true
+
+  website {
+    main_page_suffix = "index.html"
+    not_found_page   = "404.html"
+  }
+}
+
+# Make the bucket publicly readable
+resource "google_storage_bucket_iam_member" "public" {
+  bucket = google_storage_bucket.website.name
+  role   = "roles/storage.objectViewer"
+  member = "allUsers"
+}
+
+# Upload local files (edit the ./site folder)
+locals {
+  site_files = fileset("./site", "**")
+}
+
+resource "google_storage_bucket_object" "files" {
+  for_each = local.site_files
+  name     = each.value
+  bucket   = google_storage_bucket.website.name
+  source   = "./site/${each.value}"
+}
+
+# Output public endpoint
+output "website_endpoint" {
+  description = "Public URL of the static website"
+  value       = "http://${google_storage_bucket.website.name}.storage.googleapis.com/index.html"
+}
