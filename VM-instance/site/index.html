@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Shubham Electronics - sales, service & customised lithium battery packs, music systems, DTH services and more." />
+<meta name="keywords" content="electronics, repairs, antique devices, lithium battery, music systems, DTH services">
+<title>Shubham Electronics</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --accent: #0f6ab4;
+  --accent-dark: #0b4a8a;
+  --muted: #6b7280;
+}
+
+/* Body and Animated Gradient Background */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  color: #0f1724;
+  min-height: 100vh;
+
+  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #d4fc79, #fbc2eb);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* General Styles */
+* { box-sizing: border-box; margin:0; padding:0; }
+header { background: linear-gradient(90deg, var(--accent), var(--accent-dark)); color: white; padding: 36px 16px; }
+.container { max-width: 1100px; margin:0 auto; padding:0 16px; }
+.brand { display:flex; gap:16px; align-items:center; }
+.logo { width:72px; height:72px; border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:white; transition: transform 0.3s; }
+.logo:hover { transform: scale(1.05); }
+.logo img { width:100%; height:100%; object-fit:contain; }
+
+h1.shop-name { font-family: 'Libre Baskerville', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; margin: 0; }
+header p.shop-tagline { margin-top:8px; color:#ffffff; font-weight:600; font-size:1rem; }
+
+nav { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
+.btn { background:white; color:var(--accent); padding:10px 16px; border-radius:10px; text-decoration:none; font-weight:600; transition:0.3s; }
+.btn:hover { background:var(--accent); color:white; }
+
+main { padding:28px 0; }
+.hero { display:grid; grid-template-columns:2fr 1fr; gap:24px; align-items:start; }
+
+/* Cards & Glass Effect - Fixed Visibility */
+.card {
+  background: rgba(255, 255, 255, 0.95); /* more opaque */
+  border: 1px solid rgba(255,255,255,0.4); /* subtle border */
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15); /* deeper shadow for contrast */
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
+  opacity:0;
+  transform: translateY(20px);
+}
+.card.visible { opacity:1; transform: translateY(0); }
+.card:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,0,0,0.2); }
+
+/* Services & Scroll Animations */
+.services { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px; }
+.service {
+  position: relative;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid rgba(15,26,39,0.04);
+  transition: background 0.3s, transform 0.3s, opacity 0.6s;
+  opacity:0;
+  transform: translateY(20px);
+  overflow:hidden;
+}
+.service.visible { opacity:1; transform: translateY(0); }
+.service h3 { margin-bottom:8px; font-size:1.05rem; }
+.service:hover { background: rgba(15,106,180,0.05); transform: translateY(-2px); }
+
+/* Sparkle effect on hover */
+.service::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: sparkle 1s infinite;
+}
+.service:hover::after { opacity: 1; }
+@keyframes sparkle {
+  0% { transform: translate(0,0) scale(0.5); opacity: 0; }
+  25% { transform: translate(80%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(50%, -80%) scale(0.5); opacity: 0.7; }
+  75% { transform: translate(20%, -40%) scale(1); opacity: 1; }
+  100% { transform: translate(0,0) scale(0.5); opacity: 0; }
+}
+
+.muted { color: var(--muted); }
+.contact { display:flex; flex-direction:column; gap:10px; }
+.contact a { display:inline-block; text-decoration:none; color:inherit; transition: color 0.3s; }
+.contact a:hover { color: var(--accent); }
+
+footer { padding:22px 0; color: var(--muted); font-size:0.92rem; }
+
+input, textarea { width:100%; padding:8px; border-radius:8px; border:1px solid #e6eef9; font-family:inherit; }
+button.btn { cursor:pointer; border:none; }
+
+@media (max-width:900px) { .hero { grid-template-columns:1fr; gap:18px; } .services { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px) { .services { grid-template-columns:1fr; } .logo { width:56px; height:56px; } h1.shop-name { font-size:1.5rem; } .hero { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">
+      <div class="logo">
+        <img src="https://media.licdn.com/dms/image/v2/D4D0BAQG-lRIVqldizQ/company-logo_200_200/company-logo_200_200/0/1683963927879?e=2147483647&v=beta&t=vbl4p2_Yp2aANjh-m6ZMOXQqd2MVpdH9uURoMGgajFQ" alt="Shubham Electronics Logo" loading="lazy">
+      </div>
+      <div>
+        <h1 class="shop-name">SHUBHAM ELECTRONICS</h1>
+        <p class="shop-tagline">Sales • Service & Repair • Custom Lithium Battery Packs • Music Systems • DTH</p>
+      </div>
+    </div>
+    <nav>
+      <a class="btn" href="#services">Our Services</a>
+      <a class="btn" href="#contact">Contact Us</a>
+      <a class="btn" href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div>
+      <div class="card animate-on-scroll">
+        <h2>Welcome to Shubham Electronics</h2>
+        <p class="muted">We offer sales and professional servicing/repairs of antique electronic devices, custom-designed lithium battery packs, professional music systems, DTH services and much more. Trusted workmanship and fair pricing.</p>
+
+        <div class="services" id="services">
+          <div class="service animate-on-scroll">
+            <h3>Sales & Repairs — Antique Devices</h3>
+            <p class="muted">Specialist repair and restoration for vintage radios, tape decks, record players and other antique electronics.</p>
+          </div>
+          <div class="service animate-on-scroll">
+            <h3>Custom Lithium Battery Packs</h3>
+            <p class="muted">Design and build customised battery packs for projects, UPS, e-bikes and more (safe, tested cells).</p>
+          </div>
+          <div class="service animate-on-scroll">
+            <h3>Music Systems</h3>
+            <p class="muted">From home theatre setups to professional sound systems — sales, installation and tuning.</p>
+          </div>
+          <div class="service animate-on-scroll">
+            <h3>DTH Services</h3>
+            <p class="muted">DTH installation, activation and troubleshooting.</p>
+          </div>
+          <div class="service animate-on-scroll">
+            <h3>Service & Repair</h3>
+            <p class="muted">Routine servicing, PCB repair, component replacement and testing.</p>
+          </div>
+          <div class="service animate-on-scroll">
+            <h3>Accessories & Spare Parts</h3>
+            <p class="muted">Cables, adaptors, remotes, batteries and more.</p>
+          </div>
+        </div>
+
+        <p style="margin-top:14px;"><strong>Why choose us?</strong></p>
+        <ul class="muted animate-on-scroll">
+          <li>Experienced technicians with attention to detail.</li>
+          <li>Custom solutions tailored to your needs.</li>
+          <li>Transparent pricing and reliable service.</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside>
+      <div class="card animate-on-scroll">
+        <h3 id="contact">Contact & Visit</h3>
+        <p class="muted">Drop in or call to discuss your requirement. Walk-ins welcome.</p>
+        <div class="contact">
+          <div><strong>Address:</strong> 123, Main Road, Your City</div>
+          <div><strong>Phone:</strong> <a href="tel:+911234567890">+91 12345 67890</a></div>
+          <div><strong>Email:</strong> <a href="mailto:info@shubham-electronics.com">info@shubham-electronics.com</a></div>
+          <div><strong>Hours:</strong> Mon–Sat 10:00 — 19:00</div>
+          <a class="btn" href="mailto:info@shubham-electronics.com?subject=Service%20Request">Request Service</a>
+        </div>
+
+        <hr style="margin:16px 0;border:none;border-top:1px solid rgba(15,26,39,0.06)">
+
+        <p class="muted">Quick enquiry</p>
+        <form action="mailto:info@shubham-electronics.com" method="post" enctype="text/plain">
+          <p><input name="name" placeholder="Your name"></p>
+          <p><input name="phone" placeholder="Phone"></p>
+          <p><textarea name="message" placeholder="Brief message" rows="4"></textarea></p>
+          <p><button type="submit" class="btn">Send Enquiry</button></p>
+        </form>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="card animate-on-scroll">
+        <h4>Location (map)</h4>
+        <p class="muted">Replace the src below with your Google Maps embed link to show your shop location.</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086!2d-122.419!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzMwLjAiTiAxMjLCsDI1JzAwLjAiVw!5e0!3m2!1sen!2sin!4v0000000000000"
+          width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </aside>
+  </section>
+
+  <section id="about" style="margin-top:22px">
+    <div class="card animate-on-scroll">
+      <h3>About Shubham Electronics</h3>
+      <p class="muted">Shubham Electronics is a neighbourhood electronics shop offering trusted sales and repair services. We have experience working with both modern and vintage equipment and provide customised battery solutions for hobbyists and businesses alike.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="container">
+  <div class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+    <div>© <strong>SHUBHAM ELECTRONICS</strong> — All rights reserved.</div>
+    <div class="muted">Designed for small businesses • Replace contact details with your real info</div>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll, .service').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
